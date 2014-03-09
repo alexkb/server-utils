@@ -1,12 +1,13 @@
 #!/bin/bash
 
-# Trigger this script using ./vhost sitename, ie. "./vhost drupal"
+# Trigger this script using ./vhost sitename domain, ie. "./vhost myblog myblog.com"
 
 # This script helps set up the following:
 # * A directory under webroot, containing a docroot directory for docroot and tmp.
 # * Create an Apache Vhost, using mod macro.
-# * Add an entry to the hosts file, using $DOMAIN as the domain.
 # * Create an empty MySQL database using the supplied db authentication.
+# Based on https://github.com/tallsam/utilities/tree/master/vhost
+
 
 if [ $# -lt 3 ]; then
   echo "Usage: $0 sitename domain mysql_root_pass"
