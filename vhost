@@ -36,6 +36,7 @@ echo "Creating directory skeleton"
 mkdir $WEBROOT/$SITENAME
 mkdir $WEBROOT/$SITENAME/docroot
 mkdir $WEBROOT/$SITENAME/tmp
+chown www-data $WEBROOT/$SITENAME/tmp
 chown $USER:$USER $WEBROOT/$SITENAME -R
 
 # Add an entry to apache
