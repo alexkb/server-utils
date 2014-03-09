@@ -1,0 +1,18 @@
+# You need to install libapache2-mod-macro for this to work.
+
+<Macro VHost $site $domain>
+  <VirtualHost *:80>
+    ServerName $domain
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/vhosts/$site/docroot
+    <Directory /var/www/vhosts/$site/docroot>
+      Options Indexes FollowSymLinks MultiViews
+      AllowOverride All
+      Require all granted
+    </Directory>
+    ErrorLog /var/www/vhosts/$site/error.log
+    LogLevel notice
+    CustomLog /var/www/vhosts/$site/access.log combined
+  </VirtualHost>
+</Macro>
+
