@@ -9,8 +9,8 @@
 # Based on https://github.com/tallsam/utilities/tree/master/vhost
 
 
-if [ $# -lt 3 ]; then
-  echo "Usage: $0 sitename domain mysql_root_pass"
+if [ $# -lt 4 ]; then
+  echo "Usage: $0 sitename domain aliases mysql_root_pass"
   exit;
 fi;
 
@@ -40,7 +40,7 @@ chown $USER:$USER $WEBROOT/$SITENAME -R
 
 # Add an entry to apache
 echo "Adding VHost to Apache"
-echo "Use VHost $SITENAME $DOMAIN" >> /etc/apache2/sites-available/$MACRO_LIST
+echo "Use VHost $SITENAME $DOMAIN $ALIASES" >> /etc/apache2/sites-available/$MACRO_LIST
 /etc/init.d/apache2 restart
 
 # Create empty database. Need the wrapping backticks to allow database names with dashes
