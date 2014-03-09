@@ -25,7 +25,7 @@ USER=$SUDO_USER
 SITENAME=$1
 WEBROOT="/var/www/vhosts"
 DOMAIN=$2
-VHOSTNAME='sites'
+MACRO_LIST='sites.conf'
 DB_USER='root'
 DB_PASS=$3
 
@@ -40,7 +40,7 @@ chown $USER:$USER $WEBROOT/$SITENAME -R
 
 # Add an entry to apache
 echo "Adding VHost to Apache"
-echo "Use VHost $SITENAME $DOMAIN" >> /etc/apache2/sites-available/$VHOSTNAME
+echo "Use VHost $SITENAME $DOMAIN" >> /etc/apache2/sites-available/$MACRO_LIST
 /etc/init.d/apache2 restart
 
 # Create empty database. Need the wrapping backticks to allow database names with dashes
