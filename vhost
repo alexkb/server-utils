@@ -27,7 +27,8 @@ WEBROOT="/var/www/vhosts"
 DOMAIN=$2
 MACRO_LIST='sites.conf'
 DB_USER='root'
-DB_PASS=$3
+DB_PASS=$4
+ALIASES=$3
 
 echo $SITENAME
 
@@ -47,6 +48,9 @@ echo "Use VHost $SITENAME $DOMAIN $ALIASES" >> /etc/apache2/sites-available/$MAC
 # Create empty database. Need the wrapping backticks to allow database names with dashes
 echo "Creating empty database with root credentials"
 mysql -u $DB_USER -p$DB_PASS -e "create database \`$SITENAME\`;"
+
+# todo: Add a user for this site
+
 
 # Drush alias
 echo "<?php
